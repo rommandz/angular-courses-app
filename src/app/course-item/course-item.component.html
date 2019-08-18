@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="content">
+    <div class="header-info">
+      <h4>{{course.title}}</h4>
+      <div class="course-info">
+        <div class="duration">
+          <mat-icon>access_time</mat-icon>
+          <span>{{course.duration}}</span>
+        </div>
+        <div class="date">
+          <mat-icon>date_range</mat-icon>
+          <span>{{course.creationDate | date}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="additional-content">
+    <p>{{course.description}}</p>
+
+    <div class="buttons">
+      <button mat-stroked-button color="primary">Edit</button>
+      <button mat-stroked-button color="warn" (click)="onDeleteCourse()">Delete</button>
+    </div>
+  </div>
+</div>

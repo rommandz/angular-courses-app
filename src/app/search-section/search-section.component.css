@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-course {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-btn {
+  margin-left: 5px;
+}

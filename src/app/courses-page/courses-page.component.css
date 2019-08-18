@@ -1,0 +1,14 @@
+app-search-section {
+  padding: 25px 50px;
+}
+
+.courses-list {
+  padding: 0 40px;
+  padding-bottom: 25px;
+}
+
+.load-more {
+  margin: 0 50px;
+  width: calc(100% - 100px);
+  margin-bottom: 25px;
+}
