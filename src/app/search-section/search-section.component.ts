@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-section',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-section.component.css']
 })
 export class SearchSectionComponent implements OnInit {
-  searchValue: string;
+  public searchValue: string = '';
+
+  @Output() searchCourseBtnClicked: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -14,6 +16,6 @@ export class SearchSectionComponent implements OnInit {
   }
 
   onSearchBtnClicked() {
-    console.log(this.searchValue);
+    this.searchCourseBtnClicked.emit(this.searchValue.trim());
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { courses } from '../mock-courses';
 import { Course } from '../course';
+import { FilterCoursesPipe } from '../filter-courses.pipe';
 
 @Component({
   selector: 'app-courses-page',
@@ -8,12 +9,19 @@ import { Course } from '../course';
   styleUrls: ['./courses-page.component.css']
 })
 export class CoursesPageComponent implements OnInit {
-  courses: Course[];
+  public courses: Course[];
+  public filteredCourses: Course[];
 
-  constructor() { }
+  constructor(private filterCourses: FilterCoursesPipe) { }
 
   ngOnInit() {
     this.courses = courses;
+    this.filteredCourses = courses;
+  }
+
+  private onFilterCourses(title: string): void {
+    this.filteredCourses = this.filterCourses.transform(this.courses, title);
+    console.log(title);
   }
 
   onCourseDelete(id: string): void {

@@ -13,6 +13,9 @@ import { CoursesPageComponent } from './courses-page/courses-page.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { SearchSectionComponent } from './search-section/search-section.component';
 import { CourseItemComponent } from './course-item/course-item.component';
+import { CoursePlateBorderDirective } from './course-plate-border.directive';
+import { DurationPipe } from './duration.pipe';
+import { FilterCoursesPipe } from './filter-courses.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { CourseItemComponent } from './course-item/course-item.component';
     CoursesPageComponent,
     BreadcrumbsComponent,
     SearchSectionComponent,
-    CourseItemComponent
+    CourseItemComponent,
+    CoursePlateBorderDirective,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,9 @@ import { CourseItemComponent } from './course-item/course-item.component';
     FormsModule,
     SharedMaterialComponentsModule
   ],
-  providers: [],
+  providers: [
+    FilterCoursesPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

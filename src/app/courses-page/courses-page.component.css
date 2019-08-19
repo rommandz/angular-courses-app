@@ -8,7 +8,13 @@ app-search-section {
 }
 
 .load-more {
-  margin: 0 50px;
-  width: calc(100% - 100px);
-  margin-bottom: 25px;
+  margin: 25px 10px;
+  width: calc(100% - 20px);
+}
+
+.no-items {
+  background-color: white;
+  padding: 15px;
+  margin: 10px 50px;
+  text-align: center;
 }

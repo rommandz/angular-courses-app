@@ -1,9 +1,13 @@
-.wrapper {
+:host {
   display: flex;
   flex-direction: column;
   background-color: white;
   padding: 15px;
   margin: 10px;
+}
+
+:host(.top-rated) {
+  background-color: #FDF5E6;
 }
 
 .additional-content {
@@ -14,6 +18,15 @@
 
 .additional-content p, .course-info h4 {
   width: 75%;
+}
+
+.header-info .header {
+  display: flex;
+  align-items: center;
+}
+
+.header-info .header mat-icon {
+  margin-left: 5px;
 }
 
 .header-info {
