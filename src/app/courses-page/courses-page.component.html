@@ -2,7 +2,7 @@
 
 <div *ngIf="filteredCourses.length" class="courses-list">
   <app-course-item
-    *ngFor="let course of filteredCourses"
+    *ngFor="let course of filteredCourses | orderBy:'creationDate'"
     [ngClass]="{'top-rated': course.topRated}"
     [course]="course"
     [appCoursePlateBorder]="course.creationDate"

@@ -10,7 +10,7 @@ export const courses: Course[] = [
       `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica`,
-      topRated: false
+    topRated: false
   },
   {
     id: '2',
@@ -21,7 +21,7 @@ export const courses: Course[] = [
       `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica`,
-      topRated: true
+    topRated: true
   },
   {
     id: '3',
@@ -32,6 +32,6 @@ export const courses: Course[] = [
       `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica`,
-      topRated: false
+    topRated: false
   }
 ];

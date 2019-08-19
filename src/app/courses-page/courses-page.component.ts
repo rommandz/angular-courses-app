@@ -19,9 +19,8 @@ export class CoursesPageComponent implements OnInit {
     this.filteredCourses = courses;
   }
 
-  private onFilterCourses(title: string): void {
+  onFilterCourses(title: string): void {
     this.filteredCourses = this.filterCourses.transform(this.courses, title);
-    console.log(title);
   }
 
   onCourseDelete(id: string): void {

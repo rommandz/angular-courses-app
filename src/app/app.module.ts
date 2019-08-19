@@ -16,6 +16,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
 import { CoursePlateBorderDirective } from './course-plate-border.directive';
 import { DurationPipe } from './duration.pipe';
 import { FilterCoursesPipe } from './filter-courses.pipe';
+import { OrderByPipe } from './order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FilterCoursesPipe } from './filter-courses.pipe';
     SearchSectionComponent,
     CourseItemComponent,
     CoursePlateBorderDirective,
-    DurationPipe
+    DurationPipe,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,10 @@ export class CoursePlateBorderDirective implements OnInit {
     const currentTimeStamp: number = new Date().getTime();
     const creationDateTimeStamp: number = this.creationDate.getTime();
 
-    if ((creationDateTimeStamp < currentTimeStamp) && (creationDateTimeStamp >= currentTimeStamp - 14*24*60*60*1000)) {
+    if (
+      creationDateTimeStamp < currentTimeStamp &&
+      creationDateTimeStamp >= currentTimeStamp - this.convertDaysToMs(14)
+    ) {
       return 'green';
     }
 
@@ -30,5 +33,9 @@ export class CoursePlateBorderDirective implements OnInit {
     }
 
     return null;
+  }
+
+  private convertDaysToMs(days: number): number {
+    return days * 24 * 60 * 60 * 1000;
   }
 }
