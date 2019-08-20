@@ -1,4 +1,4 @@
-import { FilterCoursesPipe } from './filter-courses.pipe';
+import { FilterCoursesPipe } from '../filter-courses.pipe';
 
 describe('FilterCoursesPipe', () => {
   it('create an instance', () => {

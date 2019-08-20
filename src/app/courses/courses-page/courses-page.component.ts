@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { courses } from '../mock-courses';
 import { Course } from '../course';
-import { FilterCoursesPipe } from '../filter-courses.pipe';
+import { FilterCoursesPipe } from '../filter-courses/filter-courses.pipe';
 
 @Component({
   selector: 'app-courses-page',
