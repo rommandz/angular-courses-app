@@ -6,7 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search-section.component.css']
 })
 export class SearchSectionComponent implements OnInit {
-  public searchValue: string = '';
+  public searchValue = '';
 
   @Output() searchCourseBtnClicked: EventEmitter<string> = new EventEmitter<string>();
 

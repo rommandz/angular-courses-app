@@ -2,18 +2,18 @@
 
 <app-search-section (searchCourseBtnClicked)="onFilterCourses($event)"></app-search-section>
 
-<div *ngIf="filteredCourses.length" class="courses-list">
+<div *ngIf="courses.length" class="courses-list">
   <app-course-item
-    *ngFor="let course of filteredCourses | orderBy:'creationDate'"
+    *ngFor="let course of courses | orderBy:'creationDate'"
     [ngClass]="{'top-rated': course.topRated}"
     [course]="course"
     [appCoursePlateBorder]="course.creationDate"
-    (deleteCourse)="onCourseDelete($event)">
+    (deleteCourse)="openDialog($event)">
   </app-course-item>
 
   <button class="load-more" mat-stroked-button (click)="loadMoreCourses()">LOAD MORE</button>
 </div>
 
-<div *ngIf="!filteredCourses.length" class="no-items">
+<div *ngIf="!courses.length" class="no-items">
   NO DATA. FEEL FREE TO ADD NEW COURSE
 </div>

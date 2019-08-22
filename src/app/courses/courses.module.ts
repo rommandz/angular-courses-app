@@ -12,6 +12,7 @@ import { CoursePlateBorderDirective } from './course-plate-border/course-plate-b
 import { DurationPipe } from './duration/duration.pipe';
 import { FilterCoursesPipe } from './filter-courses/filter-courses.pipe';
 import { OrderByPipe } from './order-by/order-by.pipe';
+import { DeleteCourseDialogComponent } from './delete-course-dialog/delete-course-dialog.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { OrderByPipe } from './order-by/order-by.pipe';
     CourseItemComponent,
     CoursePlateBorderDirective,
     DurationPipe,
-    OrderByPipe
+    OrderByPipe,
+    DeleteCourseDialogComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { OrderByPipe } from './order-by/order-by.pipe';
     SharedMaterialComponentsModule,
   ],
   providers: [FilterCoursesPipe],
+  entryComponents: [DeleteCourseDialogComponent],
   exports: [CoursesPageComponent]
 })
 export class CoursesModule { }
