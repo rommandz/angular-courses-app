@@ -1,8 +1,24 @@
-mat-toolbar {
+.header {
   display: flex;
   justify-content: space-between;
 }
 
+.login {
+  display: flex;
+  align-items: center;
+}
+
+.login span {
+  font-size: medium;
+}
+
 .log-off {
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+.breadcrumbs {
+  height: 40px;
+  background-color: #3F51B5;
+  color: #FFFFFF;
+  font-size: medium;
 }

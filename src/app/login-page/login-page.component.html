@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <form class="auth-form">
+    <h4>Login</h4>
+
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="E-mail"
+        type="email"
+        [(ngModel)]="login"
+        [ngModelOptions]="{standalone: true}"
+        value="">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Password"
+        type="password"
+        [(ngModel)]="password"
+        [ngModelOptions]="{standalone: true}"
+        value="">
+    </mat-form-field>
+
+    <div class="controls">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="isLoginFieldsNotEmpty(login, password)"
+        (click)="onLogin()">
+        Login
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,6 +1,6 @@
-import { Course } from './course';
+import { ICourse } from './course';
 
-export const courses: Course[] = [
+export const courses: ICourse[] = [
   {
     id: '1',
     title: 'Video course 1',

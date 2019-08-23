@@ -10,13 +10,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FakeLogoComponent } from './fake-logo/fake-logo.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    FakeLogoComponent
+    FakeLogoComponent,
+    BreadcrumbsComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

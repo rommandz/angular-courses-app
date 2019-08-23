@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { courses } from '../mock-courses';
-import { Course } from '../course';
+import { ICourse } from '../course';
 import { FilterCoursesPipe } from '../filter-courses/filter-courses.pipe';
 
 @Component({
@@ -9,8 +9,8 @@ import { FilterCoursesPipe } from '../filter-courses/filter-courses.pipe';
   styleUrls: ['./courses-page.component.css']
 })
 export class CoursesPageComponent implements OnInit {
-  public courses: Course[];
-  public filteredCourses: Course[];
+  public courses: ICourse[];
+  public filteredCourses: ICourse[];
 
   constructor(private filterCourses: FilterCoursesPipe) { }
 

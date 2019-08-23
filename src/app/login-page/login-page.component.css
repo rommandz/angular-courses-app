@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.wrapper {
+  background-color: #F5F5F5;
+}
+
+.auth-form {
+  min-width: 300px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form h4 {
+  font-size: x-large;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+}

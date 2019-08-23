@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Course } from '../course';
+import { ICourse } from '../course';
 
 @Pipe({
   name: 'filterCourses'
 })
 export class FilterCoursesPipe implements PipeTransform {
 
-  transform(courses: Course[], title: string): Course[] {
+  transform(courses: ICourse[], title: string): ICourse[] {
     if (!title) {
       return courses;
     }
