@@ -1,8 +1,20 @@
 <mat-toolbar>
-  <app-fake-logo></app-fake-logo>
+  <mat-toolbar-row class="header">
+    <app-fake-logo></app-fake-logo>
 
-  <div class="buttons">
-    <button mat-raised-button color="primary">User login</button>
-    <button mat-raised-button color="warn" class="log-off">Log off</button>
-  </div>
+    <div class="login">
+      <span>{{getUserInfo()}}</span>
+      <button
+        mat-raised-button
+        color="warn"
+        class="log-off"
+        (click)="onLogout()">
+        Log off
+      </button>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="breadcrumbs" color="primary">
+    <app-breadcrumbs *ngIf="isAuthenticated()"></app-breadcrumbs>
+  </mat-toolbar-row>
 </mat-toolbar>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { courses } from '../courses/mock-courses';
-import { Course } from '../courses/course';
+import { ICourse } from '../courses/course';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +10,19 @@ export class CoursesService {
 
   constructor() { }
 
-  getCourses(): Course[] {
+  getCourses(): ICourse[] {
     return this.courses;
   }
 
-  getCourse(id: string): Course {
+  getCourse(id: string): ICourse {
     return this.courses.find(course => course.id === id);
   }
 
-  updateCourse(updatedCourse: Course, id: string): void {
+  updateCourse(updatedCourse: ICourse, id: string): void {
     this.courses = this.courses.map(course => course.id === id ? updatedCourse : course);
   }
 
-  createCourse(course: Course): void {
+  createCourse(course: ICourse): void {
     this.courses = [...this.courses, course];
   }
 

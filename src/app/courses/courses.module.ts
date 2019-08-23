@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { SharedMaterialComponentsModule } from '../shared-material-components/shared-material-components.module';
 
 import { CoursesPageComponent } from './courses-page/courses-page.component';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { SearchSectionComponent } from './search-section/search-section.component';
 import { CourseItemComponent } from './course-item/course-item.component';
 import { CoursePlateBorderDirective } from './course-plate-border/course-plate-border.directive';
@@ -18,7 +17,6 @@ import { DeleteCourseDialogComponent } from './delete-course-dialog/delete-cours
 @NgModule({
   declarations: [
     CoursesPageComponent,
-    BreadcrumbsComponent,
     SearchSectionComponent,
     CourseItemComponent,
     CoursePlateBorderDirective,

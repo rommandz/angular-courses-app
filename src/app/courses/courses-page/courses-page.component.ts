@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../course';
+import { ICourse } from '../course';
 import { FilterCoursesPipe } from '../filter-courses/filter-courses.pipe';
 import { CoursesService } from '../../services/courses.service';
 
@@ -12,7 +12,7 @@ import { DeleteCourseDialogComponent } from '../delete-course-dialog/delete-cour
   styleUrls: ['./courses-page.component.css']
 })
 export class CoursesPageComponent implements OnInit {
-  public courses: Course[];
+  public courses: ICourse[];
 
   constructor(
     private coursesService: CoursesService,
@@ -25,7 +25,7 @@ export class CoursesPageComponent implements OnInit {
   }
 
   onFilterCourses(title: string): void {
-    const courses: Course[] = this.coursesService.getCourses();
+    const courses: ICourse[] = this.coursesService.getCourses();
     this.courses = this.filterCourses.transform(courses, title);
   }
 
