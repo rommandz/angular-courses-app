@@ -7,8 +7,8 @@ import { AuthorizationService } from '../services/authorization.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  private login = '';
-  private password = '';
+  public login = '';
+  public password = '';
 
   constructor(private auth: AuthorizationService) { }
 

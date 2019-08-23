@@ -22,6 +22,7 @@ import { DeleteCourseDialogComponent } from './delete-course-dialog/delete-cours
     CoursePlateBorderDirective,
     DurationPipe,
     OrderByPipe,
+    FilterCoursesPipe,
     DeleteCourseDialogComponent
   ],
   imports: [
