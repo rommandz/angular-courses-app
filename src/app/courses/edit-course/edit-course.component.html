@@ -1,0 +1,60 @@
+<form class="edit-course">
+  <h4>Edit Course</h4>
+
+  <mat-form-field>
+      <input
+        matInput
+        placeholder="Title"
+        type="text"
+        [(ngModel)]="course.title"
+        [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+  <mat-form-field>
+    <textarea
+      matInput
+      placeholder="Description"
+      [(ngModel)]="course.description"
+      [ngModelOptions]="{standalone: true}">
+    </textarea>
+  </mat-form-field>
+<!-- TODO separate component -->
+  <mat-form-field class="date">
+      <input
+        matInput
+        placeholder="Date"
+        type="text"
+        [(ngModel)]="course.creationDate"
+        [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+<!-- TODO separate component -->
+  <div class="duration">
+    <mat-form-field class="duration">
+        <input
+          matInput
+          placeholder="Duration"
+          type="number"
+          [(ngModel)]="course.duration"
+          [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <span>{{course.duration | duration}}</span>
+  </div>
+<!-- TODO add authors component -->
+
+  <div class="controls">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onSave()">
+        Save
+      </button>
+
+      <button
+        class="cancel-btn"
+        mat-raised-button
+        color="warn"
+        (click)="onCancel()">
+        Cancel
+      </button>
+    </div>
+</form>

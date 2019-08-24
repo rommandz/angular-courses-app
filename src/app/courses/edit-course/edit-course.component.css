@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-course {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-course h4 {
+  font-size: x-large;
+}
+
+.date {
+  width: 33%;
+}
+
+.duration {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duration mat-form-field {
+  width: 33%;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.cancel-btn {
+  margin-left: 5px;
+}

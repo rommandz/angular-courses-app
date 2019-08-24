@@ -7,11 +7,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteCourseDialogComponent } from '../delete-course-dialog/delete-course-dialog.component';
 
 @Component({
-  selector: 'app-courses-page',
-  templateUrl: './courses-page.component.html',
-  styleUrls: ['./courses-page.component.css']
+  selector: 'app-courses-list',
+  templateUrl: './courses-list.component.html',
+  styleUrls: ['./courses-list.component.css']
 })
-export class CoursesPageComponent implements OnInit {
+export class CoursesListComponent implements OnInit {
   public courses: ICourse[];
 
   constructor(
