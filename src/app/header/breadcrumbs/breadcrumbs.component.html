@@ -1,0 +1,8 @@
+<span
+  *ngFor="let breadcrumb of breadcrumbs$ | async last as isLast"
+  [routerLink]="breadcrumb.url"
+  [class.disabled]="!breadcrumb.url"
+  class="breadcrumb"
+>
+  {{getBreadcrumbLabel(breadcrumb.label, isLast)}}
+</span>

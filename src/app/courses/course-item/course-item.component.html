@@ -20,7 +20,7 @@
   <p>{{course.description}}</p>
 
   <div class="buttons">
-    <button mat-stroked-button color="primary">Edit</button>
+    <button mat-stroked-button color="primary" (click)="onEditCourse()">Edit</button>
     <button mat-stroked-button color="warn" (click)="onDeleteCourse()">Delete</button>
   </div>
 </div>

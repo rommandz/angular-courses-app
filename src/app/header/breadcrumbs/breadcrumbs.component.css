@@ -1,0 +1,13 @@
+.breadcrumb {
+  font-size: small;
+  font-style: italic;
+}
+
+.breadcrumb.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.breadcrumb:hover {
+  cursor: pointer;
+}

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { SharedMaterialComponentsModule } from '../shared-material-components/shared-material-components.module';
+import { CoursesRoutingModule } from './courses-routing.module';
 
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { SearchSectionComponent } from './search-section/search-section.component';
@@ -31,6 +32,7 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
     CommonModule,
     FormsModule,
     SharedMaterialComponentsModule,
+    CoursesRoutingModule
   ],
   providers: [FilterCoursesPipe],
   entryComponents: [DeleteCourseDialogComponent],

@@ -1,26 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ICourse, Course } from '../course';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CoursesService } from 'src/app/services/courses.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-course',
   templateUrl: './edit-course.component.html',
   styleUrls: ['./edit-course.component.css']
 })
-export class EditCourseComponent implements OnInit {
+export class EditCourseComponent implements OnInit, OnDestroy {
   public course: Course;
+  private routerDataSubscription: Subscription;
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute, private coursesService: CoursesService) { }
 
   ngOnInit() {
-    this.course = new Course('', new Date(), 0, '', false);
+    this.course = new Course('New course', new Date(), 0, '', false);
+
+    this.routerDataSubscription = this.route.data.subscribe((data: { course: ICourse }) => {
+      if (!data.course) {
+        this.router.navigate(['../courses/new']);
+
+        return;
+      }
+      this.course = data.course;
+    });
+  }
+
+  ngOnDestroy() {
+    this.routerDataSubscription.unsubscribe();
   }
 
   public onSave(): void {
-    console.log('edit-course save');
-    console.log(this.course);
+    this.coursesService.updateCourse(this.course, this.course.id);
+    this.router.navigate(['../courses']);
   }
 
   public onCancel(): void {
-    console.log('edit-course cancel');
+    this.router.navigate(['../courses']);
   }
 }

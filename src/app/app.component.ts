@@ -9,9 +9,6 @@ import { AuthorizationService } from './services/authorization.service';
 export class AppComponent {
   title = 'angular-courses-app';
 
-  constructor(private auth: AuthorizationService) {}
+  constructor() {}
 
-  isAuthenticated(): boolean {
-    return this.auth.isAuthenticated();
-  }
 }

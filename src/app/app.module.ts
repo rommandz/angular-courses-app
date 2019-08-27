@@ -5,29 +5,29 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedMaterialComponentsModule } from './shared-material-components/shared-material-components.module';
 import { CoursesModule } from './courses/courses.module';
+import { HeaderModule } from './header/header.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { FakeLogoComponent } from './fake-logo/fake-logo.component';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
-    FakeLogoComponent,
-    BreadcrumbsComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     SharedMaterialComponentsModule,
-    CoursesModule
+    CoursesModule,
+    HeaderModule,
+    AppRoutingModule
   ],
   providers: [
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorizationService } from '../services/authorization.service';
-import { IAuthUser } from '../auth-user';
+import { AuthorizationService } from '../../services/authorization.service';
+import { IAuthUser } from '../../auth-user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,15 @@ import { IAuthUser } from '../auth-user';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private auth: AuthorizationService) { }
+  constructor(private auth: AuthorizationService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onLogout(): void {
     this.auth.logout();
+
+    this.router.navigate(['/login']);
   }
 
   isAuthenticated(): boolean {

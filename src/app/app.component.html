@@ -1,8 +1,7 @@
 <app-header></app-header>
 
 <main>
-  <app-login-page *ngIf="!isAuthenticated()"></app-login-page>
-  <app-courses-list *ngIf="isAuthenticated()"></app-courses-list>
+  <router-outlet></router-outlet>
 </main>
 
 <app-footer></app-footer>

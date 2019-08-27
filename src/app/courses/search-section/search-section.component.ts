@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-section',
@@ -10,12 +11,16 @@ export class SearchSectionComponent implements OnInit {
 
   @Output() searchCourseBtnClicked: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  onSearchBtnClicked() {
+  onSearchBtnClicked(): void {
     this.searchCourseBtnClicked.emit(this.searchValue.trim());
+  }
+
+  addCourse(): void {
+    this.router.navigate(['courses/new']);
   }
 }
