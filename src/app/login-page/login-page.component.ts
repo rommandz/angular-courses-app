@@ -17,11 +17,13 @@ export class LoginPageComponent implements OnInit {
   }
 
   onLogin(): void {
-    this.auth.login(this.login, this.password);
-
-    if (this.auth.isAuthenticated()) {
-      this.router.navigate(['/courses']);
-    }
+    this.auth.login(this.login, this.password).subscribe(
+      (token: string) => {
+        this.auth.saveAuthToken(token);
+        this.router.navigate(['/courses']);
+      },
+      (error => console.log(error))
+    );
   }
 
   isLoginFieldsNotEmpty(login: string, password: string): boolean {

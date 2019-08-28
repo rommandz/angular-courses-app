@@ -1,45 +1,51 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { IUser } from '../user';
 import { IAuthUser } from '../auth-user';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
+const BASE_URL = 'http://localhost:3004/auth';
+
+interface Token {
+  token: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public login(login: string, password: string): void {
-    if (login === 'admin' && password === 'admin') {
-      const fakeAuthUser: IAuthUser = {
-        id: '123456',
-        name: {
-          first: 'Roman',
-          last: 'Mandziuk',
-        },
-        fakeToken: '0000000',
-        login,
-        password
-      };
+  public login(login: string, password: string): Observable<string> {
+    const body = { login, password };
 
-      localStorage.setItem('currentUser', JSON.stringify(fakeAuthUser));
-    } else {
-      console.log('auth error');
-    }
+    return this.http.post<Token>(`${BASE_URL}/login`, body).pipe(
+      map((token: Token) => token.token)
+    );
   }
 
-  public logout(): void {
-    localStorage.removeItem('currentUser');
+  public getUserInfo(): Observable<IUser> {
+    return this.http.post<IAuthUser>(`${BASE_URL}/userinfo`, {}).pipe(
+      map((authUser: IAuthUser) => ({ id: authUser.id, name: authUser.name }))
+    );
   }
 
   public isAuthenticated(): boolean {
-    return !!localStorage.getItem('currentUser');
+    return !!this.getAuthToken();
   }
 
-  public getUserInfo(): IAuthUser {
-    const currentUser: IAuthUser = JSON.parse(localStorage.getItem('currentUser'));
+  public logout(): void {
+    localStorage.removeItem('token');
+  }
 
-    return currentUser;
+  public saveAuthToken(token: string): void {
+    localStorage.setItem('token', token);
+  }
+
+  public getAuthToken(): string {
+    return localStorage.getItem('token') || '';
   }
 }

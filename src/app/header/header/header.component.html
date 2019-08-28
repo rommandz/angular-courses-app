@@ -3,8 +3,13 @@
     <app-fake-logo></app-fake-logo>
 
     <div class="login">
-      <span>{{getUserInfo()}}</span>
+      <ng-container *ngIf="isAuthenticated()">
+        <span *ngIf="user$ | async as user">
+          {{user.name.first}} {{user.name.last}}
+        </span>
+      </ng-container>
       <button
+        *ngIf="isAuthenticated()"
         mat-raised-button
         color="warn"
         class="log-off"

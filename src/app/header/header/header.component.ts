@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorizationService } from '../../services/authorization.service';
-import { IAuthUser } from '../../auth-user';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { IUser } from 'src/app/user';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  user$: Observable<IUser>;
 
   constructor(private auth: AuthorizationService, private router: Router) { }
 
   ngOnInit() {
+    this.user$ = this.auth.getUserInfo();
   }
 
   onLogout(): void {
@@ -24,11 +27,4 @@ export class HeaderComponent implements OnInit {
   isAuthenticated(): boolean {
     return this.auth.isAuthenticated();
   }
-
-  getUserInfo(): string {
-    const user: IAuthUser = this.auth.getUserInfo();
-
-    return this.isAuthenticated() ? `${user.name.first} ${user.name.last}` : `User login`;
-  }
-
 }
