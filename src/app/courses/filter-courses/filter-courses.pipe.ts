@@ -6,12 +6,12 @@ import { ICourse } from '../course';
 })
 export class FilterCoursesPipe implements PipeTransform {
 
-  transform(courses: ICourse[], title: string): ICourse[] {
-    if (!title) {
+  transform(courses: ICourse[], name: string): ICourse[] {
+    if (!name) {
       return courses;
     }
 
-    return courses.filter(course => course.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()));
+    return courses.filter(course => course.name.toLocaleLowerCase().includes(name.toLocaleLowerCase()));
   }
 
 }

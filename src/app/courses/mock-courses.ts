@@ -3,35 +3,35 @@ import { ICourse } from './course';
 export const courses: ICourse[] = [
   {
     id: '1',
-    title: 'Video course 1',
-    creationDate: new Date(1566138072749),
+    name: 'Video course 1',
+    date: '2017-09-28T04:39:24+00:00',
     duration: 377,
     description:
       `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica`,
-    topRated: false
+    isTopRated: false
   },
   {
     id: '2',
-    title: 'Video course 2',
-    creationDate: new Date(566138072749),
+    name: 'Video course 2',
+    date: '2017-09-28T04:39:24+00:00',
     duration: 120,
     description:
       `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica`,
-    topRated: true
+    isTopRated: true
   },
   {
     id: '3',
-    title: 'Video course 3',
-    creationDate: new Date(1566709244040),
+    name: 'Video course 3',
+    date: '2017-09-28T04:39:24+00:00',
     duration: 59,
     description:
       `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur voluptas animi corporis quos ipsum explica`,
-    topRated: false
+    isTopRated: false
   }
 ];

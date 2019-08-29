@@ -16,7 +16,7 @@ export class EditCourseComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private route: ActivatedRoute, private coursesService: CoursesService) { }
 
   ngOnInit() {
-    this.course = new Course('New course', new Date(), 0, '', false);
+    this.course = new Course('New course', new Date().toString(), 0, '', false);
 
     this.routerDataSubscription = this.route.data.subscribe((data: { course: ICourse }) => {
       if (!data.course) {

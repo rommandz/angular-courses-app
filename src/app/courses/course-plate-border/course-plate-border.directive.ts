@@ -4,7 +4,7 @@ import { Directive, Renderer2, ElementRef, Input, OnInit } from '@angular/core';
   selector: '[appCoursePlateBorder]'
 })
 export class CoursePlateBorderDirective implements OnInit {
-  @Input('appCoursePlateBorder') creationDate: Date;
+  @Input('appCoursePlateBorder') date: string;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
@@ -19,7 +19,7 @@ export class CoursePlateBorderDirective implements OnInit {
 
   private getBorderColor(): string {
     const currentTimeStamp: number = new Date().getTime();
-    const creationDateTimeStamp: number = this.creationDate.getTime();
+    const creationDateTimeStamp: number = new Date(this.date).getTime();
 
     if (
       creationDateTimeStamp < currentTimeStamp &&

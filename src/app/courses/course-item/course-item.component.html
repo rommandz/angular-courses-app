@@ -1,8 +1,8 @@
 <div class="content">
   <div class="header-info">
     <div class="header">
-        <h4>{{course.title | uppercase}}</h4>
-        <mat-icon *ngIf="course.topRated">star_border</mat-icon>
+        <h4>{{course.name | uppercase}}</h4>
+        <mat-icon *ngIf="course.isTopRated">star_border</mat-icon>
     </div>
     <div class="course-info">
       <div class="duration">
@@ -11,7 +11,7 @@
       </div>
       <div class="date">
         <mat-icon>date_range</mat-icon>
-        <span>{{course.creationDate | date}}</span>
+        <span>{{course.date | date}}</span>
       </div>
     </div>
   </div>

@@ -12,7 +12,9 @@ import { DeleteCourseDialogComponent } from '../delete-course-dialog/delete-cour
   styleUrls: ['./courses-list.component.css']
 })
 export class CoursesListComponent implements OnInit {
-  public courses: ICourse[];
+  public courses: ICourse[] = [];
+  public currentCount: number = 3;
+  public countStep: number = 3;
 
   constructor(
     private coursesService: CoursesService,
@@ -21,12 +23,14 @@ export class CoursesListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.courses = this.coursesService.getCourses();
+    this.coursesService.getCourses(0, 3).subscribe((courses: ICourse[]) => {
+      this.courses = courses;
+    }); // don't forget unsubscribe
   }
 
-  onFilterCourses(title: string): void {
-    const courses: ICourse[] = this.coursesService.getCourses();
-    this.courses = this.filterCourses.transform(courses, title);
+  onFilterCourses(name: string): void {
+    // const courses: ICourse[] = this.coursesService.getCourses();
+    // this.courses = this.filterCourses.transform(courses, name);
   }
 
   openDialog(id: string): void {
@@ -37,14 +41,14 @@ export class CoursesListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((courseId: string): void => {
       if (!!courseId) {
-        this.courseDelete(courseId);
+        // this.courseDelete(courseId);
       }
     });
   }
 
   private courseDelete(id: string): void {
-    this.coursesService.deleteCourse(id);
-    this.courses = this.coursesService.getCourses();
+    // this.coursesService.deleteCourse(id);
+    // this.courses = this.coursesService.getCourses();
   }
 
   loadMoreCourses(): void {

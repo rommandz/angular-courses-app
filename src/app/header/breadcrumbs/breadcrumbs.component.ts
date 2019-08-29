@@ -23,7 +23,7 @@ export class BreadcrumbsComponent implements OnInit {
       map((event: Event) => this.route.firstChild),
       switchMap((route: ActivatedRoute) => route.data.pipe(
         filter((data: { course: ICourse }) => !!data.course),
-        map((data: { course: ICourse }) => ({ label: data.course.title })),
+        map((data: { course: ICourse }) => ({ label: data.course.name })),
         startWith({ label: 'Courses', url: '/courses' }),
         scan((acc: IBreadcrumbs[], next: IBreadcrumbs) => {
           acc = [ ...acc, next ];

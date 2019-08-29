@@ -2,10 +2,10 @@
 
 <div *ngIf="courses.length" class="courses-list">
   <app-course-item
-    *ngFor="let course of courses | orderBy:'creationDate'"
-    [ngClass]="{'top-rated': course.topRated}"
+    *ngFor="let course of courses | orderBy:'date'"
+    [ngClass]="{'top-rated': course.isTopRated}"
     [course]="course"
-    [appCoursePlateBorder]="course.creationDate"
+    [appCoursePlateBorder]="course.date"
     (deleteCourse)="openDialog($event)">
   </app-course-item>
 
