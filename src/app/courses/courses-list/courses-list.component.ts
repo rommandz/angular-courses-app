@@ -13,7 +13,7 @@ import { DeleteCourseDialogComponent } from '../delete-course-dialog/delete-cour
 })
 export class CoursesListComponent implements OnInit {
   public courses: ICourse[] = [];
-  public currentCount: number = 3;
+  public currentCount: number = 0;
   public countStep: number = 3;
 
   constructor(
@@ -23,9 +23,11 @@ export class CoursesListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.coursesService.getCourses(0, 3).subscribe((courses: ICourse[]) => {
-      this.courses = courses;
-    }); // don't forget unsubscribe
+    this.coursesService.getCourses(this.currentCount, this.countStep).subscribe(
+      (courses: ICourse[]) => {
+        this.courses = courses;
+        this.currentCount += this.countStep;
+      }); // don't forget unsubscribe
   }
 
   onFilterCourses(name: string): void {
@@ -53,5 +55,12 @@ export class CoursesListComponent implements OnInit {
 
   loadMoreCourses(): void {
     console.log('load more');
+
+    this.coursesService.getCourses(this.currentCount, this.countStep).subscribe(
+      (courses: ICourse[]) => {
+        this.courses = [ ...this.courses, ...courses ];
+        this.currentCount += this.countStep;
+      }
+    ); // don't forget unsubscribe
   }
 }
