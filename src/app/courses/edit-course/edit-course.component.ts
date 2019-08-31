@@ -33,8 +33,12 @@ export class EditCourseComponent implements OnInit, OnDestroy {
   }
 
   public onSave(): void {
-    this.coursesService.updateCourse(this.course, this.course.id);
+    this.addNewCourse(this.course);
     this.router.navigate(['../courses']);
+  }
+
+  private addNewCourse(course: ICourse): void {
+    this.coursesService.createCourse(course).subscribe();
   }
 
   public onCancel(): void {

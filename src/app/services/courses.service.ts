@@ -15,23 +15,29 @@ export class CoursesService {
 
   constructor(private http: HttpClient) { }
 
-  getCourses(start: number, count: number): Observable<ICourse[]> {
-    return this.http.get<ICourse[]>(BASE_URL, { params: { start: start.toString(), count: count.toString() } });
+  getCourses(start: number, count: number, textFragment?: string): Observable<ICourse[]> {
+    return this.http.get<ICourse[]>(BASE_URL, {
+      params: {
+        start: start.toString(),
+        count: count.toString(),
+        ...(textFragment ? { textFragment } : {})
+      }
+    });
   }
 
   getCourse(id: string): Observable<ICourse> {
     return this.http.get<ICourse>(`${BASE_URL}/${id}`);
   }
 
+  createCourse(course: ICourse): Observable<ICourse> {
+    return this.http.post<ICourse>(BASE_URL, course);
+  }
+
   updateCourse(updatedCourse: ICourse, id: string): void {
     this.courses = this.courses.map(course => course.id === id ? updatedCourse : course);
   }
 
-  createCourse(course: ICourse): void {
-    this.courses = [...this.courses, course];
-  }
-
-  deleteCourse(id: string): void {
-    this.courses = this.courses.filter(course => course.id !== id);
+  deleteCourse(id: string): Observable<ICourse> {
+    return this.http.delete<ICourse>(`${BASE_URL}/${id}`);
   }
 }
