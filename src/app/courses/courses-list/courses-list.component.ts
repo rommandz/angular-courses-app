@@ -4,8 +4,8 @@ import { CoursesService } from '../../services/courses.service';
 
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCourseDialogComponent } from '../delete-course-dialog/delete-course-dialog.component';
-import { exhaustMap, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { exhaustMap, takeUntil, tap, filter, debounceTime, switchMap } from 'rxjs/operators';
+import { Subject, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-courses-list',
@@ -19,7 +19,10 @@ export class CoursesListComponent implements OnInit, OnDestroy {
   private readonly countStep: number = 3;
   private textFragment: string;
 
+  private searchQuery$: Subject<string> = new Subject<string>();
   private componentDestroyed$: Subject<boolean> = new Subject<boolean>();
+
+  private searchedCoursesSub: Subscription;
 
   constructor(
     private coursesService: CoursesService,
@@ -29,6 +32,7 @@ export class CoursesListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.currentCount = 0;
     this.getInitialCourses();
+    this.setSearchCoursesSub();
   }
 
   private getInitialCourses(): void {
@@ -43,18 +47,26 @@ export class CoursesListComponent implements OnInit, OnDestroy {
         );
   }
 
-  onSearhCourses(name: string): void {
-    this.coursesService.getCourses(0, this.countStep, name)
-      .pipe(takeUntil(this.componentDestroyed$))
+  private setSearchCoursesSub(): void {
+    this.searchedCoursesSub = this.searchQuery$.asObservable()
+      .pipe(
+        filter((value: string) => value.length > 2 || !value.length),
+        debounceTime(500),
+        tap(x => console.log(x)),
+        switchMap((value: string) => this.coursesService.getCourses(0, this.countStep, value))
+      )
         .subscribe(
           (courses: ICourse[]) => {
             this.currentCount = this.countStep;
             this.textFragment = name;
-
             this.courses = [ ...courses ];
           },
           error => console.log(error)
         );
+  }
+
+  onSearhCoursesInputChanged(name: string): void {
+    this.searchQuery$.next(name);
   }
 
   openDialog(id: string): void {
@@ -97,6 +109,8 @@ export class CoursesListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.searchedCoursesSub.unsubscribe();
+
     this.componentDestroyed$.next(true);
     this.componentDestroyed$.complete();
   }

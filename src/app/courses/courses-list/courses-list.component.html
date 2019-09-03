@@ -1,4 +1,4 @@
-<app-search-section (searchCourseBtnClicked)="onSearhCourses($event)"></app-search-section>
+<app-search-section (searchCourse)="onSearhCoursesInputChanged($event)"></app-search-section>
 
 <div *ngIf="courses.length" class="courses-list">
   <app-course-item

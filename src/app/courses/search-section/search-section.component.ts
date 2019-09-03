@@ -9,15 +9,15 @@ import { Router } from '@angular/router';
 export class SearchSectionComponent implements OnInit {
   public searchValue = '';
 
-  @Output() searchCourseBtnClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() searchCourse: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  onSearchBtnClicked(): void {
-    this.searchCourseBtnClicked.emit(this.searchValue.trim());
+  onSearch(value: string): void {
+    this.searchCourse.emit(value.trim());
   }
 
   addCourse(): void {
