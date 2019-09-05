@@ -48,17 +48,21 @@ export class CoursesListComponent implements OnInit, OnDestroy {
   }
 
   private setSearchCoursesSub(): void {
+    let textFragment: string;
+
     this.searchedCoursesSub = this.searchQuery$.asObservable()
       .pipe(
         filter((value: string) => value.length > 2 || !value.length),
         debounceTime(500),
-        tap(x => console.log(x)),
+        tap((value: string) => {
+          textFragment = value;
+        }),
         switchMap((value: string) => this.coursesService.getCourses(0, this.countStep, value))
       )
         .subscribe(
           (courses: ICourse[]) => {
             this.currentCount = this.countStep;
-            this.textFragment = name;
+            this.textFragment = textFragment;
             this.courses = [ ...courses ];
           },
           error => console.log(error)

@@ -1,5 +1,11 @@
 <app-header></app-header>
 
+<ng-container *ngIf="isLoading$ | async as isLoading">
+  <div *ngIf="isLoading">
+    Loading...
+  </div>
+</ng-container>
+
 <main>
   <router-outlet></router-outlet>
 </main>
